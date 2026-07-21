@@ -20,7 +20,9 @@
       "Hugging Face", "Transformers", "OpenAI API", "FastAPI", "Docker",
       "Kubernetes", "AWS SageMaker", "MLflow", "XGBoost", "NLP",
       "Machine Learning", "Sentence Transformers", "Qdrant", "Pinecone",
-      "FAISS", "SQL", "AWS", "CI/CD", "Redis"
+      "FAISS", "SQL", "AWS", "CI/CD", "Redis", "Pydantic AI", "LangSmith",
+      "Arize Phoenix", "DeepEval", "RAGAS", "Helicone", "Amazon EKS",
+      "Microservices", "REST API"
     ],
     "keywords": [
       "LLM", "RAG", "Retrieval-Augmented Generation", "Agentic AI",
@@ -29,7 +31,9 @@
       "Hallucination", "Intent Classification", "Entity Extraction",
       "Recommendation System", "Fraud Detection", "Search Ranking",
       "Model Serving", "Low Latency", "Production ML", "Reranking",
-      "Chatbot", "Dialogue", "Anthropic", "OpenAI", "Claude", "GPT"
+      "Chatbot", "Dialogue", "Anthropic", "OpenAI", "Claude", "GPT",
+      "ColBERT", "Hybrid Search", "HITL", "Multi-turn Memory",
+      "Model Versioning", "A/B Testing", "Real-time Inference"
     ],
     "experience_level": "2-4",
 
