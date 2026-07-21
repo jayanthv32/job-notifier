@@ -1,0 +1,187 @@
+{
+  "discord_webhook_url": "PASTE_YOUR_DISCORD_WEBHOOK_URL_HERE",
+  "poll_interval_seconds": 300,
+  "score_threshold": 55,
+
+  "_priority_note": "Optional second Discord channel/webhook for only your best matches (score >= priority_score_threshold). Set discord_webhook_url_priority here, or leave empty and set DISCORD_WEBHOOK_URL_PRIORITY as a GitHub secret instead (same pattern as the main webhook). Leave both empty to disable -- everything still goes to the main channel either way.",
+  "discord_webhook_url_priority": "",
+  "priority_score_threshold": 80,
+
+  "resume_profile": {
+    "target_roles": [
+      "ML Engineer", "Machine Learning Engineer", "AI Engineer",
+      "Generative AI Engineer", "GenAI Engineer", "LLM Engineer",
+      "NLP Engineer", "Applied Scientist", "Applied AI Engineer",
+      "Data Scientist", "AI/ML Engineer", "Machine Learning Scientist",
+      "MLOps Engineer", "Conversational AI"
+    ],
+    "skills": [
+      "Python", "PyTorch", "LangChain", "LangGraph", "LlamaIndex",
+      "Hugging Face", "Transformers", "OpenAI API", "FastAPI", "Docker",
+      "Kubernetes", "AWS SageMaker", "MLflow", "XGBoost", "NLP",
+      "Machine Learning", "Sentence Transformers", "Qdrant", "Pinecone",
+      "FAISS", "SQL", "AWS", "CI/CD", "Redis"
+    ],
+    "keywords": [
+      "LLM", "RAG", "Retrieval-Augmented Generation", "Agentic AI",
+      "Conversational AI", "Generative AI", "Prompt Engineering",
+      "Fine-tuning", "LoRA", "QLoRA", "Vector Database", "Embeddings",
+      "Hallucination", "Intent Classification", "Entity Extraction",
+      "Recommendation System", "Fraud Detection", "Search Ranking",
+      "Model Serving", "Low Latency", "Production ML", "Reranking",
+      "Chatbot", "Dialogue", "Anthropic", "OpenAI", "Claude", "GPT"
+    ],
+    "experience_level": "2-4",
+
+    "experience_highlights": [
+      {
+        "skills": ["LangGraph", "Agentic AI", "Conversational AI", "HITL", "Multi-turn Memory"],
+        "bullet": "Built LangGraph stateful agent workflows powering Klarna's customer-facing conversational AI (parallel tool execution, HITL interrupts, sub-200ms P95 latency at scale)."
+      },
+      {
+        "skills": ["RAG", "Retrieval-Augmented Generation", "LlamaIndex", "Qdrant", "ColBERT Reranking", "Hybrid Search"],
+        "bullet": "Built production RAG pipelines (LlamaIndex + Qdrant hybrid search + ColBERT reranking) for KYC/AML document intelligence at Alloy, serving 800+ banks/fintechs."
+      },
+      {
+        "skills": ["Fine-tuning", "LoRA", "QLoRA", "MLflow", "Model Versioning"],
+        "bullet": "Ran targeted LoRA fine-tuning on production interaction data and managed model versioning/retraining via MLflow + GitHub Actions CI/CD."
+      },
+      {
+        "skills": ["LLM Evaluation", "LangSmith", "Arize Phoenix", "DeepEval", "RAGAS", "Hallucination Detection", "Eval Design"],
+        "bullet": "Built a full LLM observability & eval stack (LangSmith, Arize Phoenix, DeepEval, RAGAS) that caught quality regressions before they reached production."
+      },
+      {
+        "skills": ["Cost Optimization", "Helicone", "Token Optimization", "GPTCache"],
+        "bullet": "Drove ~44% LLM inference cost reduction via complexity-based model routing, semantic caching, and batch APIs, with no measurable quality loss."
+      },
+      {
+        "skills": ["Recommendation System", "XGBoost", "Search Ranking", "Fraud Detection", "Sentence Transformers"],
+        "bullet": "Built a two-tower recommendation engine, learning-to-rank search (MRR@10 +22%), and a fraud/spam classifier serving millions of MAU at OLX."
+      },
+      {
+        "skills": ["FastAPI", "Docker", "AWS SageMaker", "Kubernetes", "Amazon EKS", "Microservices", "Real-time Inference"],
+        "bullet": "Deployed multiple production ML microservices (FastAPI + Docker) on AWS SageMaker and Amazon EKS with autoscaling and low-latency SLAs."
+      }
+    ]
+  },
+
+  "aggregators": {
+    "_note": "These cover thousands of employers each via official public APIs -- this is where your real breadth comes from, not the hand-curated companies list below.",
+    "remotive": {
+      "enabled": true,
+      "queries": ["machine learning engineer", "AI engineer", "NLP engineer", "generative AI", "LLM engineer", "data scientist", "MLOps"]
+    },
+    "remoteok": {
+      "enabled": true
+    },
+    "arbeitnow": {
+      "enabled": true,
+      "pages": 2
+    },
+    "themuse": {
+      "enabled": true,
+      "categories": ["Data Science", "Engineering", "IT"],
+      "pages": 2
+    },
+    "adzuna": {
+      "_note": "Free API key required (2-minute signup at https://developer.adzuna.com/) -- disabled until you add app_id/app_key. This is the single highest-leverage source for wide US coverage: it aggregates postings from thousands of company career pages and job boards nationwide.",
+      "enabled": false,
+      "app_id": "",
+      "app_key": "",
+      "location": "us",
+      "results_per_page": 50,
+      "queries": ["machine learning engineer", "AI engineer", "NLP engineer", "generative AI engineer", "LLM engineer", "data scientist", "MLOps engineer"]
+    },
+    "jooble": {
+      "_note": "Free API key required (instant signup at https://jooble.org/api/about) -- disabled until you add api_key. A second independent aggregator, widens the net beyond Adzuna.",
+      "enabled": false,
+      "api_key": "",
+      "location": "United States",
+      "queries": ["machine learning engineer", "AI engineer", "NLP engineer", "generative AI engineer", "LLM engineer", "data scientist", "MLOps engineer"]
+    }
+  },
+
+  "_workday_note": "Workday has no predictable slug pattern like Greenhouse/Lever, so each entry needs 3 values found from the company's careers URL: https://{tenant}.{host}.myworkdayjobs.com/{site} -- e.g. https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite means tenant=nvidia, host=wd5, site=NVIDIAExternalCareerSite. These 4 are verified-pattern examples; add more the same way (see README).",
+  "workday_companies": [
+    { "name": "NVIDIA", "tenant": "nvidia", "host": "wd5", "site": "NVIDIAExternalCareerSite" },
+    { "name": "Salesforce", "tenant": "salesforce", "host": "wd12", "site": "External_Career_Site" },
+    { "name": "Mastercard", "tenant": "mastercard", "host": "wd1", "site": "CorporateCareers" },
+    { "name": "3M", "tenant": "3m", "host": "wd1", "site": "en-US/Search" }
+  ],
+
+  "_note": "Companies below are a broad best-effort seed list across Greenhouse, Lever, and Ashby, weighted toward AI/GenAI/ML employers plus fintech/marketplace companies matching the resume background. Wrong or outdated slugs simply log a fetch error and get skipped -- they will not crash the bot. See README for how to verify/expand this list.",
+  "companies": [
+    { "name": "Anthropic", "ats": "greenhouse", "slug": "anthropic" },
+    { "name": "Databricks", "ats": "greenhouse", "slug": "databricks" },
+    { "name": "Scale AI", "ats": "greenhouse", "slug": "scaleai" },
+    { "name": "Hugging Face", "ats": "greenhouse", "slug": "huggingface" },
+    { "name": "Cohere", "ats": "greenhouse", "slug": "cohere" },
+    { "name": "Weights & Biases", "ats": "greenhouse", "slug": "wandb" },
+    { "name": "Runway", "ats": "greenhouse", "slug": "runwayml" },
+    { "name": "ElevenLabs", "ats": "ashby", "slug": "elevenlabs" },
+    { "name": "Perplexity AI", "ats": "greenhouse", "slug": "perplexityai" },
+    { "name": "Character.AI", "ats": "greenhouse", "slug": "characterai" },
+    { "name": "Together AI", "ats": "ashby", "slug": "together-ai" },
+    { "name": "Anyscale", "ats": "greenhouse", "slug": "anyscale" },
+    { "name": "Replicate", "ats": "greenhouse", "slug": "replicate" },
+    { "name": "Modal", "ats": "ashby", "slug": "modal" },
+    { "name": "Sierra", "ats": "ashby", "slug": "sierra" },
+    { "name": "Harvey", "ats": "ashby", "slug": "harvey" },
+    { "name": "Glean", "ats": "greenhouse", "slug": "glean" },
+    { "name": "Writer", "ats": "greenhouse", "slug": "getwriter" },
+    { "name": "Ramp", "ats": "ashby", "slug": "ramp" },
+    { "name": "Linear", "ats": "ashby", "slug": "linear" },
+    { "name": "Mercury", "ats": "greenhouse", "slug": "mercury" },
+    { "name": "Vanta", "ats": "ashby", "slug": "vanta" },
+    { "name": "Rippling", "ats": "greenhouse", "slug": "rippling" },
+    { "name": "Deel", "ats": "greenhouse", "slug": "deel" },
+    { "name": "Notion", "ats": "greenhouse", "slug": "notion" },
+    { "name": "Figma", "ats": "greenhouse", "slug": "figma" },
+    { "name": "Stripe", "ats": "greenhouse", "slug": "stripe" },
+    { "name": "Plaid", "ats": "greenhouse", "slug": "plaid" },
+    { "name": "Chime", "ats": "greenhouse", "slug": "chime" },
+    { "name": "SoFi", "ats": "greenhouse", "slug": "sofi" },
+    { "name": "Affirm", "ats": "greenhouse", "slug": "affirm" },
+    { "name": "Brex", "ats": "greenhouse", "slug": "brex" },
+    { "name": "Robinhood", "ats": "greenhouse", "slug": "robinhood" },
+    { "name": "Coinbase", "ats": "greenhouse", "slug": "coinbase" },
+    { "name": "Toast", "ats": "greenhouse", "slug": "toast" },
+    { "name": "Instacart", "ats": "greenhouse", "slug": "instacart" },
+    { "name": "DoorDash", "ats": "greenhouse", "slug": "doordash" },
+    { "name": "Discord", "ats": "greenhouse", "slug": "discord" },
+    { "name": "Reddit", "ats": "greenhouse", "slug": "reddit" },
+    { "name": "Pinterest", "ats": "greenhouse", "slug": "pinterest" },
+    { "name": "Cruise", "ats": "greenhouse", "slug": "cruise" },
+    { "name": "Anduril", "ats": "greenhouse", "slug": "anduril" },
+    { "name": "Duolingo", "ats": "greenhouse", "slug": "duolingo" },
+    { "name": "Confluent", "ats": "greenhouse", "slug": "confluent" },
+    { "name": "HashiCorp", "ats": "greenhouse", "slug": "hashicorp" },
+    { "name": "Elastic", "ats": "greenhouse", "slug": "elastic" },
+    { "name": "MongoDB", "ats": "greenhouse", "slug": "mongodb" },
+    { "name": "Cloudflare", "ats": "greenhouse", "slug": "cloudflare" },
+    { "name": "Datadog", "ats": "greenhouse", "slug": "datadog" },
+    { "name": "Okta", "ats": "greenhouse", "slug": "okta" },
+    { "name": "Zapier", "ats": "greenhouse", "slug": "zapier" },
+    { "name": "Webflow", "ats": "greenhouse", "slug": "webflow" },
+    { "name": "Retool", "ats": "greenhouse", "slug": "retool" },
+    { "name": "Vercel", "ats": "greenhouse", "slug": "vercel" },
+    { "name": "Squarespace", "ats": "greenhouse", "slug": "squarespace" },
+    { "name": "Twilio", "ats": "greenhouse", "slug": "twilio" },
+    { "name": "Asana", "ats": "greenhouse", "slug": "asana" },
+    { "name": "Gusto", "ats": "greenhouse", "slug": "gusto" },
+    { "name": "Netflix", "ats": "lever", "slug": "netflix" },
+    { "name": "Palantir", "ats": "lever", "slug": "palantir" },
+    { "name": "Box", "ats": "lever", "slug": "box" },
+    { "name": "Eventbrite", "ats": "lever", "slug": "eventbrite" },
+    { "name": "Yelp", "ats": "lever", "slug": "Yelp" },
+    { "name": "AngelList / Wellfound", "ats": "lever", "slug": "angellist" },
+    { "name": "Attentive", "ats": "ashby", "slug": "attentive" },
+    { "name": "Watershed", "ats": "ashby", "slug": "watershed" },
+    { "name": "Abridge", "ats": "greenhouse", "slug": "abridge" },
+    { "name": "Ada Support", "ats": "greenhouse", "slug": "ada" },
+    { "name": "Jasper", "ats": "greenhouse", "slug": "jasper" },
+    { "name": "You.com", "ats": "greenhouse", "slug": "youdotcom" },
+    { "name": "Contextual AI", "ats": "ashby", "slug": "contextual-ai" },
+    { "name": "Fireworks AI", "ats": "ashby", "slug": "fireworks-ai" }
+  ]
+}
