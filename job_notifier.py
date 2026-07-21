@@ -265,7 +265,7 @@ def fetch_themuse(category, pages=2):
     return jobs
 
 
-def fetch_adzuna(query, app_id, app_key, location="us", results_per_page=50):
+def fetch_adzuna(query, app_id, app_key, location="us", results_per_page=50, max_retries=4):
     url = f"https://api.adzuna.com/v1/api/jobs/{location}/search/1"
     params = {
         "app_id": app_id,
@@ -274,9 +274,26 @@ def fetch_adzuna(query, app_id, app_key, location="us", results_per_page=50):
         "what": query,
         "content-type": "application/json",
     }
-    r = requests.get(url, params=params, timeout=20)
-    r.raise_for_status()
-    data = r.json()
+    # Adzuna's free tier rate-limits bursts. Firing all 7 queries at once
+    # (via the shared thread pool) can trip 429s and silently lose that
+    # query's results for the run. Retry with backoff instead of giving up.
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            r = requests.get(url, params=params, timeout=20)
+            if r.status_code == 429:
+                time.sleep(2 ** attempt)  # 1s, 2s, 4s, 8s
+                continue
+            r.raise_for_status()
+            data = r.json()
+            break
+        except requests.exceptions.HTTPError as e:
+            last_error = e
+            if attempt == max_retries - 1:
+                raise
+            time.sleep(2 ** attempt)
+    else:
+        raise last_error or RuntimeError(f"Adzuna rate-limited after {max_retries} retries")
     jobs = []
     for j in data.get("results", []):
         jobs.append({
@@ -548,7 +565,8 @@ def run_once(config, state):
 
         adzuna_cfg = agg.get("adzuna", {})
         if adzuna_cfg.get("enabled") and adzuna_cfg.get("app_id") and adzuna_cfg.get("app_key"):
-            for q in adzuna_cfg.get("queries", []):
+            for i, q in enumerate(adzuna_cfg.get("queries", [])):
+                time.sleep(0.3 * i)  # stagger bursts; retry/backoff in fetch_adzuna handles the rest
                 futures[ex.submit(
                     fetch_adzuna, q, adzuna_cfg["app_id"], adzuna_cfg["app_key"],
                     adzuna_cfg.get("location", "us"), adzuna_cfg.get("results_per_page", 50),
