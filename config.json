@@ -20,9 +20,7 @@
       "Hugging Face", "Transformers", "OpenAI API", "FastAPI", "Docker",
       "Kubernetes", "AWS SageMaker", "MLflow", "XGBoost", "NLP",
       "Machine Learning", "Sentence Transformers", "Qdrant", "Pinecone",
-      "FAISS", "SQL", "AWS", "CI/CD", "Redis", "Pydantic AI", "LangSmith",
-      "Arize Phoenix", "DeepEval", "RAGAS", "Helicone", "Amazon EKS",
-      "Microservices", "REST API"
+      "FAISS", "SQL", "AWS", "CI/CD", "Redis"
     ],
     "keywords": [
       "LLM", "RAG", "Retrieval-Augmented Generation", "Agentic AI",
@@ -31,9 +29,7 @@
       "Hallucination", "Intent Classification", "Entity Extraction",
       "Recommendation System", "Fraud Detection", "Search Ranking",
       "Model Serving", "Low Latency", "Production ML", "Reranking",
-      "Chatbot", "Dialogue", "Anthropic", "OpenAI", "Claude", "GPT",
-      "ColBERT", "Hybrid Search", "HITL", "Multi-turn Memory",
-      "Model Versioning", "A/B Testing", "Real-time Inference"
+      "Chatbot", "Dialogue", "Anthropic", "OpenAI", "Claude", "GPT"
     ],
     "experience_level": "2-4",
 
@@ -109,8 +105,7 @@
   "workday_companies": [
     { "name": "NVIDIA", "tenant": "nvidia", "host": "wd5", "site": "NVIDIAExternalCareerSite" },
     { "name": "Salesforce", "tenant": "salesforce", "host": "wd12", "site": "External_Career_Site" },
-    { "name": "Mastercard", "tenant": "mastercard", "host": "wd1", "site": "CorporateCareers" },
-    { "name": "3M", "tenant": "3m", "host": "wd1", "site": "en-US/Search" }
+    { "name": "Mastercard", "tenant": "mastercard", "host": "wd1", "site": "CorporateCareers" }
   ],
 
   "_note": "Companies below are a broad best-effort seed list across Greenhouse, Lever, and Ashby, weighted toward AI/GenAI/ML employers plus fintech/marketplace companies matching the resume background. Wrong or outdated slugs simply log a fetch error and get skipped -- they will not crash the bot. See README for how to verify/expand this list.",
