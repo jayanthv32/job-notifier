@@ -596,11 +596,17 @@ def run_once(config, state):
 
         # Cross-source dedup: the same real job often appears via both a
         # direct ATS board AND an aggregator (different IDs, same posting).
-        # This catches that so you don't get double-pinged for one job.
-        fingerprint = "{}::{}".format(
-            job.get("company", "").strip().lower(),
-            re.sub(r"[^a-z0-9]+", "", job.get("title", "").lower()),
-        )
+        # Guard against a false-positive collision: if "company" comes back
+        # blank from an aggregator (happens sometimes), fall back to
+        # including the URL so two different companies both posting e.g.
+        # "Data Scientist" don't get treated as the same job and one
+        # silently dropped forever.
+        company_part = job.get("company", "").strip().lower()
+        title_part = re.sub(r"[^a-z0-9]+", "", job.get("title", "").lower())
+        if company_part:
+            fingerprint = f"{company_part}::{title_part}"
+        else:
+            fingerprint = f"nocompany::{title_part}::{job.get('url', '')}"
         if fingerprint in state["fingerprints"]:
             cross_source_dupes += 1
             continue
